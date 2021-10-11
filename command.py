@@ -78,8 +78,8 @@ async def on_message(message):
 async def on_message_edit(before,after):
     await before.channel.send(
         f'message was edited by {before.author} \n'
-        f'before message was {before.content} \n'
-        f'after message is {after.content} \n'
+        f'before message : {before.content} \n'
+        f'after message  : {after.content} \n'
     )
 
 @bot.listen()
