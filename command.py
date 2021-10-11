@@ -68,7 +68,7 @@ async def on_message(message):
 
     member = f"{message.author}";
     if member=="Irfan#5854":
-        await message.channel.send("Irfan poda lekha nai naki!")
+        await message.channel.send("Now it's study time!")
 
 
 
@@ -79,7 +79,7 @@ async def on_message_edit(before,after):
     await before.channel.send(
         f'message was edited by {before.author} \n'
         f'before message was {before.content} \n'
-        f'after message was {after.content} \n'
+        f'after message is {after.content} \n'
     )
 
 @bot.listen()
