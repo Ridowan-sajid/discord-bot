@@ -2,6 +2,7 @@ from discord.ext import commands
 import discord
 import json
 import requests
+import random
 
 bot = commands.Bot(command_prefix='<')
 
@@ -88,6 +89,47 @@ async def on_reaction_add(reaction,user):
         return
     else:
         await reaction.message.channel.send(f'{user} reacted with {reaction.emoji}')
+
+
+list = ['rock', 'paper', 'scissor']
+
+option = ''
+start = False
+
+
+@bot.command()
+async def game(ctx):
+    await ctx.send("To play choose an option(example:<choose rock)")
+    global start
+    start = True
+
+
+@bot.command()
+async def choose(ctx, choice):
+    if start:
+        global option
+        option = choice
+        if option.lower() == 'rock' and list[random.randint(0, 4)] == 'rock':
+            await ctx.send("Game tie!")
+        if option.lower() == 'paper' and list[random.randint(0, 4)] == 'paper':
+            await ctx.send("Game tie!")
+        if option.lower() == 'scissor' and list[random.randint(0, 4)] == 'scissor':
+            await ctx.send("Game tie!")
+
+        if option.lower() == 'rock' and list[random.randint(0, 4)] == 'paper':
+            await ctx.send("You loose!")
+        if option.lower() == 'scissor' and list[random.randint(0, 4)] == 'paper':
+            await ctx.send("You win!")
+
+        if option.lower() == 'paper' and list[random.randint(0, 4)] == 'rock':
+            await ctx.send("You win!")
+        if option.lower() == 'scissor' and list[random.randint(0, 4)] == 'rock':
+            await ctx.send("You Lose!")
+
+        if option.lower() == 'rock' and list[random.randint(0, 4)] == 'scissor':
+            await ctx.send("You win!")
+        if option.lower() == 'paper' and list[random.randint(0, 4)] == 'scissor':
+            await ctx.send("You loose!")
 
 
 
