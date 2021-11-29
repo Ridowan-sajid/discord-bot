@@ -134,7 +134,7 @@ async def choose(ctx, choice):
 
 
 
-token="ODk1MzIxODEwMTMwODM3NTI1.YV23aQ.pQIFZu85x6UvvVikEeePqXnRfPY"
+token="ODk1MzIFZu85x6UvvVikEe"
 
 
 bot.run(token)
